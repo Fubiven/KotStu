@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.fzp.mykotlinandroid.forKotlin.MainActivity">
+    <!-- 标题栏 -->
+    <include android:id="@+id/layout_title_bar" layout="@layout/layout_title_bar"/>
+
+    <RelativeLayout
+        android:id="@+id/layout_main"
+        android:layout_below="@id/layout_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/tv_say_hello"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/press_me"
+            />
+
+        <Switch
+            android:id="@+id/sw_is_use"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="40dp"
+            android:text="@string/change_toast_hint"/>
+
+        <TextView
+            android:id="@+id/tv_menu"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/to_menu"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:gravity="center"
+            android:background="@color/colorAccent"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 标题栏 -->
+    <include android:id="@+id/layout_title_bar" layout="@layout/layout_title_bar"/>
+
+    <ScrollView
+        android:id="@+id/sv_fun_call_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/layout_fun_call_main"
+            android:padding="@dimen/spacing_vertical_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- 命名参数 -->
+            <TextView
+                android:id="@+id/tv_name_param"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorBlue"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold|italic"
+                android:text="@string/name_param"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorLightGray"/>
+
+            <!-- 默认参数 -->
+            <TextView
+                android:id="@+id/tv_default_param"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorBlue"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold|italic"
+                android:text="@string/default_param"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorLightGray"/>
+
+            <!-- 扩展函数和属性 -->
+            <TextView
+                android:id="@+id/tv_extend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorBlue"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold|italic"
+                android:text="@string/extend"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

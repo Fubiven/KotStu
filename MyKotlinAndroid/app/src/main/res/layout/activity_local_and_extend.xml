@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!-- 标题栏 -->
+    <include
+        android:id="@+id/layout_title_bar"
+        layout="@layout/layout_title_bar"/>
+
+    <LinearLayout
+        android:id="@+id/layout_str_regex_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_vertical_medium">
+        <!-- 传统代码编写方式 -->
+        <TextView
+            android:id="@+id/tv_tradition_code"
+            style="bold|italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/traditional_code"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/text_size_medium"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorLightGray"/>
+
+        <!-- 使用局部函数优化代码 -->
+        <TextView
+            android:id="@+id/tv_local_code"
+            style="bold|italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/local_code"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/text_size_medium"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorLightGray"/>
+
+        <!-- 使用局部函数优化代码 -->
+        <TextView
+            android:id="@+id/tv_local_extend"
+            style="bold|italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/local_extend"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/text_size_medium"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorLightGray"/>
+
+    </LinearLayout>
+
+</LinearLayout>

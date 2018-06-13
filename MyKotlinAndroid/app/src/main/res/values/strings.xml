@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Kotlin 安卓</string>
+    <string name="change_toast_hint">是否直接用方法:</string>
+    <string name="press_me">点击我!</string>
+    <string name="change">切换</string>
+    <string name="to_menu">进入菜单</string>
+    <string name="menu_kotlin">Kotlin菜单</string>
+    <string name="menu_java">Java菜单</string>
+    <string name="hint">请注意</string>
+    <string name="title">标题</string>
+    <string name="main_kotlin">Kotlin首页</string>
+    <string name="main_java">Java首页</string>
+    <string name="name_param"><u>•  参数命名</u></string>
+    <string name="default_param"><u>•  默认参数</u></string>
+    <string name="extend"><u>•  扩展函数和属性</u></string>
+    <string name="split_string"><u>•  分割字符串</u></string>
+    <string name="regex_three">•  正则表达式及三重引号字符串:</string>
+    <string name="three_multiline"><u>•  多行三重引号字符串</u></string>
+    <string name="traditional_code"><u>•  传统代码格式</u></string>
+    <string name="local_code"><u>• 局部函数优化代码</u></string>
+    <string name="local_extend"><u>• 局部函数和扩展</u></string>
+</resources>
