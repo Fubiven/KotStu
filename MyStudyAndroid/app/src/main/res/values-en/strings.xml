@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android World</string>
+    <string name="please_input_name">Enter the name</string>
+    <string name="submit">Submit</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="hello_blank_fragment">Hello to fragment</string>
+    <string name="changeFragment">Change fragment</string>
+    <string name="to_official_website_tutorials"><u>Chinese Network Learning Course</u></string>
+    <string name="to_work_test"><u>Work Test</u></string>
+    <string name="hint">Please note that</string>
+    <string name="login">Login</string>
+    <string name="login_hint_account">account/phoneNum/mail</string>
+    <string name="login_hint_psw">password</string>
+    <string name="forget_psw">Forget the password？</string>
+    <string name="user_registration">User registration</string>
+    <string name="login_bottom_text">Login means read and agreement</string>
+    <string name="terms_of_service">terms of service</string>
+    <string name="result">Result</string>
+    <string name="calculation_formula">1388 – 1388%10 + 10 = ？</string>
+</resources>
