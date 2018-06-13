@@ -13,6 +13,9 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.fzp.mykotlinandroid.R
 import com.example.fzp.mykotlinandroid.forJava.Chapter3JavaActivity
+import com.example.fzp.mykotlinandroid.forKotlin.chapter3.FunCallActivity
+import com.example.fzp.mykotlinandroid.forKotlin.chapter3.LocalAndExtendActivity
+import com.example.fzp.mykotlinandroid.forKotlin.chapter3.StrRegexActivity
 import java.lang.StringBuilder
 
 /**

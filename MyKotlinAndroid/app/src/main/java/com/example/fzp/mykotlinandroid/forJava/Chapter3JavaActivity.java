@@ -10,9 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.fzp.mykotlinandroid.R;
+import com.example.fzp.mykotlinandroid.forJava.javachapter3.FunCallJavaActivity;
 import com.example.fzp.mykotlinandroid.forKotlin.Chapter3Activity;
-import com.example.fzp.mykotlinandroid.forKotlin.LocalAndExtendActivity;
-import com.example.fzp.mykotlinandroid.forKotlin.StrRegexActivity;
+import com.example.fzp.mykotlinandroid.forKotlin.chapter3.LocalAndExtendActivity;
+import com.example.fzp.mykotlinandroid.forKotlin.chapter3.StrRegexActivity;
 
 /**
  * 函数定义与调用（Java）

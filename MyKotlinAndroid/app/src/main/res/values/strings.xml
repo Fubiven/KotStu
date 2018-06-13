@@ -19,4 +19,5 @@
     <string name="traditional_code"><u>•  传统代码格式</u></string>
     <string name="local_code"><u>• 局部函数优化代码</u></string>
     <string name="local_extend"><u>• 局部函数和扩展</u></string>
+    <string name="normal_implement"><u>• 普通实现</u></string>
 </resources>

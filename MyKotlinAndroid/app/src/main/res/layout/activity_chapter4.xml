@@ -22,6 +22,33 @@
             android:padding="@dimen/spacing_vertical_medium"
             android:orientation="vertical">
 
+            <!-- 1、定义类继承结构 -->
+            <LinearLayout
+                android:id="@+id/layout_first"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/text_size_big"
+                    android:text="1、定义类继承结构"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/icon_next"
+                    android:contentDescription="@string/hint"/>
+            </LinearLayout>
+
+            <!-- 分割线 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorLightGray"/>
 
         </LinearLayout>
     </ScrollView>

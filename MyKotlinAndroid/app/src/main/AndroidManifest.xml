@@ -25,13 +25,13 @@
         </activity>
         <activity android:name=".forKotlin.Chapter3Activity">
         </activity>
-        <activity android:name=".forKotlin.FunCallActivity">
+        <activity android:name=".forKotlin.chapter3.FunCallActivity">
         </activity>
-        <activity android:name=".forJava.FunCallJavaActivity">
+        <activity android:name=".forJava.javachapter3.FunCallJavaActivity">
         </activity>
-        <activity android:name=".forKotlin.StrRegexActivity">
+        <activity android:name=".forKotlin.chapter3.StrRegexActivity">
         </activity>
-        <activity android:name=".forKotlin.LocalAndExtendActivity">
+        <activity android:name=".forKotlin.chapter3.LocalAndExtendActivity">
         </activity>
         <activity android:name=".forKotlin.Chapter4Activity">
         </activity>
