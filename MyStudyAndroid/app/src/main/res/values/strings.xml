@@ -8,6 +8,7 @@
     <string name="changeFragment">切换卡片</string>
     <string name="to_official_website_tutorials"><u>中文网学习教程</u></string>
     <string name="to_work_test"><u>工作测试</u></string>
+    <string name="to_study_test"><u>学习测试</u></string>
     <string name="hint">请注意</string>
     <string name="login">登录</string>
     <string name="login_hint_account">账号/手机号/邮箱</string>
@@ -18,5 +19,6 @@
     <string name="terms_of_service">服务条款</string>
     <string name="result">结果</string>
     <string name="calculation_formula">1388 – 1388%10 + 10 = ？</string>
+    <string name="image_load">图片加载</string>
 
 </resources>

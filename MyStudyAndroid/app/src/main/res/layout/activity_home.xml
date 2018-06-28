@@ -37,7 +37,7 @@
                 android:layout_height="1px"
                 android:layout_marginBottom="@dimen/spacing_vertical_medium"
                 android:background="@color/colorLightGray"/>
-            <!-- android 中文官网教程入口 -->
+            <!-- android 工作测试入口 -->
             <TextView
                 android:id="@+id/tv_toWorkTest"
                 android:layout_width="match_parent"
@@ -56,6 +56,24 @@
                 android:layout_marginBottom="@dimen/spacing_vertical_medium"
                 android:background="@color/colorLightGray"/>
 
+            <!-- android 学习测试入口 -->
+            <TextView
+                android:id="@+id/tv_toStudyTest"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="@string/to_study_test"
+                android:textColor="@color/home_list_text_color_selector"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold|italic">
+            </TextView>
+
+            <!-- 分割线 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginBottom="@dimen/spacing_vertical_medium"
+                android:background="@color/colorLightGray"/>
 
         </LinearLayout>
     </ScrollView>

@@ -1,5 +1,6 @@
 package com.fzp.mystudyandroid.utils;
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
@@ -19,7 +20,54 @@ import java.text.DecimalFormat;
  */
 
 public class FileUtil {
+    /**
+     * 图片缓存路径
+     */
+    private static String imageCachePath ="";
+    /**
+     * 音频缓存路径
+     */
+    private static String audioCachePath ="";
+    /**
+     * 视频缓存路径
+     */
+    private static String videoCachePath ="";
+    /**
+     * 信息缓存路径
+     */
+    private static String msgCachePath ="";
 
+    /**
+     * 从Assets文件夹中获取JSON文件内容
+     * @return  json数据字符串
+     */
+    public static String getJsonFromAssets(Context context, String fileName){
+        StringBuilder sb = new StringBuilder();
+
+        //获取assets资源管理器
+        AssetManager am = context.getAssets();
+
+        //通过管理器打开文件并读取数据
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(am.open(fileName)));
+            String line;
+            while ((line = br.readLine()) != null){
+                sb.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return  sb.toString();
+    }
+
+    /**
+     * 向文件写入字符串
+     * @param strData   写入内容
+     * @param fileName  文件名
+     * @param isAppend  是否续传
+     * @return
+     */
     public static boolean writeStringToFile(String strData, String fileName, boolean isAppend){
         return writeStringToFile(strData, "",fileName, isAppend);
     }
@@ -162,7 +210,7 @@ public class FileUtil {
      *
      * @return 目录文件
      */
-    public static File getDiskCacheDir(Context context) {
+    private static File  getDiskCacheDir(Context context) {
         final String cachePath = checkSDCard() ?
                 getExternalCacheDir(context).getPath() : getAppCacheDir(context).getPath();
         File cacheFile = new File(cachePath);
@@ -250,9 +298,73 @@ public class FileUtil {
     }
 
     /**
+     * 获取信息缓存路径字符串
+     * @param context   上下文
+     * @return  信息缓存地址字符串
+     */
+    public static String getMsgCachePath(Context context){
+        String sPath = msgCachePath;
+
+        if (TextUtils.isEmpty(sPath)){ //不存在则重新获取
+            final String cacheDirPath = getDiskCacheDir(context).getAbsolutePath();
+            sPath = cacheDirPath + FileConstants.CACHE_MESSAGE_DIR;
+            msgCachePath = sPath;
+        }
+        return  sPath;
+    }
+
+    /**
+     * 获取视频缓存路径字符串
+     * @param context   上下文
+     * @return  视频缓存地址字符串
+     */
+    public static String getVideoCachePath(Context context){
+        String sPath = videoCachePath;
+
+        if (TextUtils.isEmpty(sPath)){ //不存在则重新获取
+            final String cacheDirPath = getDiskCacheDir(context).getAbsolutePath();
+            sPath = cacheDirPath + FileConstants.CACHE_VIDEO_DIR;
+            videoCachePath = sPath;
+        }
+        return  sPath;
+    }
+
+    /**
+     * 获取音频缓存路径字符串
+     * @param context   上下文
+     * @return  音频缓存地址字符串
+     */
+    public static String getAudioCachePath(Context context){
+        String sPath = audioCachePath;
+
+        if (TextUtils.isEmpty(sPath)){ //不存在则重新获取
+            final String cacheDirPath = getDiskCacheDir(context).getAbsolutePath();
+            sPath = cacheDirPath + FileConstants.CACHE_AUDIO_DIR;
+            audioCachePath = sPath;
+        }
+        return  sPath;
+    }
+
+    /**
+     * 获取图片缓存路径字符串
+     * @param context   上下文
+     * @return  图片缓存地址字符串
+     */
+    public static String getImageCachePath(Context context){
+        String sPath = imageCachePath;
+
+        if (TextUtils.isEmpty(sPath)){ //不存在则重新获取
+            final String cacheDirPath = getDiskCacheDir(context).getAbsolutePath();
+            sPath = cacheDirPath + FileConstants.CACHE_IMAGE_DIR;
+            imageCachePath = sPath;
+        }
+        return  sPath;
+    }
+
+    /**
      * 创建项目缓存文件目录
      *
-     * @param context
+     * @param context 上下文
      */
     public static void initCacheFile(Context context) {
         final String cacheDirPath = getDiskCacheDir(context).getAbsolutePath();
@@ -263,6 +375,7 @@ public class FileUtil {
         if (!imageFileDir.exists()) {
             imageFileDir.mkdirs();
         }
+        imageCachePath = imageDirPath;
 
         /* 创建音频缓存文件 */
         final String audioDirPath = cacheDirPath + FileConstants.CACHE_AUDIO_DIR;
@@ -270,6 +383,7 @@ public class FileUtil {
         if (!audioFileDir.exists()) {
             audioFileDir.mkdirs();
         }
+        audioCachePath = audioDirPath;
 
         /* 创建视频缓存文件 */
         final String videoDirPath = cacheDirPath + FileConstants.CACHE_VIDEO_DIR;
@@ -277,20 +391,53 @@ public class FileUtil {
         if (!videoFileDir.exists()) {
             videoFileDir.mkdirs();
         }
+        videoCachePath = videoDirPath;
 
-        /* 创建音频缓存文件 */
-        final String messageDirPath = new StringBuilder(cacheDirPath).append(FileConstants.CACHE_MESSAGE_DIR).toString();
+        /* 创建信息缓存文件 */
+        final String messageDirPath = cacheDirPath + FileConstants.CACHE_MESSAGE_DIR;
         final File messageFileDir = new File(messageDirPath);
         if (!messageFileDir.exists()) {
             messageFileDir.mkdirs();
         }
+        msgCachePath = messageDirPath;
     }
 
-
+    /**
+     * 文件路径常量
+     */
     public static class FileConstants {
-        static String CACHE_IMAGE_DIR = "/image";
-        static String CACHE_AUDIO_DIR = "/audio";
-        static String CACHE_VIDEO_DIR = "/video";
-        static String CACHE_MESSAGE_DIR = "/message";
+        /**
+         * 本地图片缓存路径
+         */
+        public static final String CACHE_IMAGE_DIR = "/image";
+
+        /**
+         * 本地音频缓存路径
+         */
+        public static final String CACHE_AUDIO_DIR = "/audio";
+
+        /**
+         * 本地视频片缓存路径
+         */
+        public static final String CACHE_VIDEO_DIR = "/video";
+
+        /**
+         * 本地信息缓存路径
+         */
+        public static final String CACHE_MESSAGE_DIR = "/message";
+    }
+
+    /**
+     * 后缀名常量
+     */
+    public static class PostfixConstants{
+        /**
+         * 通用后缀名
+         */
+        public static final String NORMAL_POSTFIX = ".dat";
+        /**
+         * 图片格式后缀名
+         */
+        public static final String IMAGE_POSTFIX = ".jpg";
     }
 }

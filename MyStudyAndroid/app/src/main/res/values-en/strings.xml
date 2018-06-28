@@ -9,6 +9,7 @@
     <string name="changeFragment">Change fragment</string>
     <string name="to_official_website_tutorials"><u>Chinese Network Learning Course</u></string>
     <string name="to_work_test"><u>Work Test</u></string>
+    <string name="to_study_test"><u>Study Test</u></string>
     <string name="hint">Please note that</string>
     <string name="login">Login</string>
     <string name="login_hint_account">account/phoneNum/mail</string>
@@ -19,4 +20,5 @@
     <string name="terms_of_service">terms of service</string>
     <string name="result">Result</string>
     <string name="calculation_formula">1388 – 1388%10 + 10 = ？</string>
+    <string name="image_load">Load Image</string>
 </resources>

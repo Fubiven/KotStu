@@ -3,6 +3,7 @@ package com.fzp.mystudyandroid.main;
 import android.app.Application;
 import android.content.Context;
 
+import com.fzp.mystudyandroid.utils.FileUtil;
 import com.fzp.mystudyandroid.utils.PreCacheUtil;
 
 /**
@@ -35,6 +36,7 @@ public class MyApp extends Application {
      * 初始化应用程序
      */
     private void initApp() {
+        FileUtil.initCacheFile(mContext);
         PreCacheUtil.initPreCache(mContext, PreCacheUtil.BASICINFO);
     }
 

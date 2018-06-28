@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.fzp.mystudyandroid.R;
 import com.fzp.mystudyandroid.cnStudy.CNStudyListActivity;
+import com.fzp.mystudyandroid.studyTest.StudyTestActivity;
 import com.fzp.mystudyandroid.views.aboutDialog.BaseDialog;
 import com.fzp.mystudyandroid.views.aboutDialog.PromptDialog;
 import com.fzp.mystudyandroid.workTest.WorkTestActivity;
@@ -27,6 +28,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
      * 前往工作测试
      */
     private TextView tvToWorkTest = null;
+    /**
+     * 前往学习测试
+     */
+    private TextView tvToStudyTest = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private void initEvent() {
         tvToCNStudy.setOnClickListener(this);
         tvToWorkTest.setOnClickListener(this);
+        tvToStudyTest.setOnClickListener(this);
     }
 
     /**
@@ -51,6 +57,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private void initView() {
         tvToCNStudy = container.findViewById(R.id.tv_toCNStudy);
         tvToWorkTest= container.findViewById(R.id.tv_toWorkTest);
+        tvToStudyTest= container.findViewById(R.id.tv_toStudyTest);
 
     }
 
@@ -62,7 +69,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent intent = null;
+        Intent intent ;
         switch (v.getId()) {
             case R.id.tv_toCNStudy:
                 intent = new Intent(HomeActivity.this, CNStudyListActivity.class);
@@ -71,6 +78,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
             case R.id.tv_toWorkTest:
                 intent = new Intent(HomeActivity.this, WorkTestActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.tv_toStudyTest:
+                intent = new Intent(HomeActivity.this, StudyTestActivity.class);
                 startActivity(intent);
                 break;
 
