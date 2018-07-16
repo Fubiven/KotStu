@@ -99,10 +99,12 @@ public class Chapter4JavaActivity extends AppCompatActivity implements View.OnCl
 
             case R.id.layout_first:
                 Toast.makeText(
-                        Chapter4JavaActivity.this, "未知控件", Toast.LENGTH_LONG ).show();
+                        Chapter4JavaActivity.this, "进入定义类结构界面", Toast.LENGTH_LONG ).show();
                 break;
 
             default:
+                Toast.makeText(
+                        Chapter4JavaActivity.this, "未知控件", Toast.LENGTH_LONG ).show();
                 break;
         }
     }

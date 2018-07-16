@@ -2,9 +2,9 @@ package com.fzp.mystudyandroid.main;
 
 import android.app.Application;
 import android.content.Context;
-
 import com.fzp.mystudyandroid.utils.FileUtil;
 import com.fzp.mystudyandroid.utils.PreCacheUtil;
+import com.fzp.mystudyandroid.utils.db.DBHelper;
 
 /**
  * 应用程序界面
@@ -12,11 +12,6 @@ import com.fzp.mystudyandroid.utils.PreCacheUtil;
  */
 
 public class MyApp extends Application {
-
-    /**
-     * 应用程序实例
-     */
-    private MyApp mApp;
 
     /**
      * 应用程序上下文
@@ -28,7 +23,6 @@ public class MyApp extends Application {
         super.onCreate();
         initData();
         initApp();
-
 
     }
 
@@ -44,7 +38,8 @@ public class MyApp extends Application {
      * 初始化数据
      */
     private void initData() {
-        mApp = this;
         mContext = getApplicationContext();
+        DBHelper.initDBHelper(mContext);
     }
+
 }

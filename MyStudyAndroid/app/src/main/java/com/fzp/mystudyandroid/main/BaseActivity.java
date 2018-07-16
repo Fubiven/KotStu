@@ -11,21 +11,31 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.fzp.mystudyandroid.R;
 import com.fzp.mystudyandroid.utils.PreCacheUtil;
 import com.fzp.mystudyandroid.utils.WindowImmersiveUtil;
+import com.fzp.mystudyandroid.utils.db.DBHelper;
+import com.fzp.mystudyandroid.utils.db.DBOperate;
 import com.fzp.mystudyandroid.views.aboutDialog.BaseDialog;
 import com.fzp.mystudyandroid.views.aboutDialog.PromptDialog;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
 public abstract class BaseActivity extends AppCompatActivity {
+
     /**
      * 双击退出允许时长
      */
     private final static int DOUBLE_CLICK_EXIT_TIME = 1000;
+    /**
+     * 数据库辅助类实例
+     */
+    private DBHelper mDBHelper = null;
+    /**
+     * 数据库操作对象
+     */
+    public DBOperate mDBOperate = null;
+
     /**
      * 标题栏标题
      */
@@ -64,6 +74,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initDB();
 //        WindowImmersiveUtil.statusBarTintColor(this, getResources().getColor(R.color.colorPrimary));
 //        WindowImmersiveUtil.statusBarHide(this);
 //        WindowImmersiveUtil.actionBarHide(this);
@@ -78,6 +89,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         setTitleBarVisibility(true);//默认显示标题栏
         setTitle("标题");//默认标题
         setEvent();
+    }
+
+    /**
+     * 初始化数据库相关工具
+     */
+    private void initDB() {
+        mDBHelper = DBHelper.getInstance(this);
+        mDBOperate = DBOperate.getInstance(this);
     }
 
     /**
@@ -199,6 +218,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 退出程序
      */
     public void exitApp() {
+        mDBHelper.closeDB();
         Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -237,4 +257,5 @@ public abstract class BaseActivity extends AppCompatActivity {
             }, DOUBLE_CLICK_EXIT_TIME);//指定时间内未再次点击则自动取消点击记忆
         }
     }
+
 }

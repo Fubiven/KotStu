@@ -175,13 +175,30 @@ public class FileUtil {
     }
 
     /**
-     * 检查SD卡是否可用
-     *
+     * 检查SD卡是否可用(方法已过时，请使用checkExternalStorageState代替)
      * @return 是否可用
      */
+    @Deprecated
     public static Boolean checkSDCard() {
         final String status = Environment.getExternalStorageState();
         return status.equals(Environment.MEDIA_MOUNTED);
+    }
+
+    /**
+     * 检查外部存储状态
+     * @return  0：不可用
+     *          1：读写
+     *          2：只读
+     */
+    public static int checkExternalStorageState(){
+        int state = 0;
+        final String status = Environment.getExternalStorageState();
+        if (status.equals(Environment.MEDIA_MOUNTED)){
+            state = 1;
+        }else if(status.equals(Environment.MEDIA_MOUNTED_READ_ONLY)){
+            state = 0;
+        }
+        return  state;
     }
 
     /**
@@ -210,8 +227,8 @@ public class FileUtil {
      *
      * @return 目录文件
      */
-    private static File  getDiskCacheDir(Context context) {
-        final String cachePath = checkSDCard() ?
+    private static File getDiskCacheDir(Context context) {
+        final String cachePath = checkExternalStorageState() == 1 ?
                 getExternalCacheDir(context).getPath() : getAppCacheDir(context).getPath();
         File cacheFile = new File(cachePath);
         if (!cacheFile.exists()) {
@@ -439,5 +456,9 @@ public class FileUtil {
          * 图片格式后缀名
          */
         public static final String IMAGE_POSTFIX = ".jpg";
+        /**
+         * 数据库格式后缀名
+         */
+        public static final String DB_POSTFIX = ".db";
     }
 }

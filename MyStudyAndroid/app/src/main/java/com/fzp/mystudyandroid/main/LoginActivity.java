@@ -1,5 +1,4 @@
 package com.fzp.mystudyandroid.main;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +17,7 @@ import com.fzp.mystudyandroid.R;
 import com.fzp.mystudyandroid.myEvent.MyClickListener;
 import com.fzp.mystudyandroid.utils.PreCacheUtil;
 import com.fzp.mystudyandroid.utils.WindowImmersiveUtil;
+import com.fzp.mystudyandroid.utils.db.DBHelper;
 import com.fzp.mystudyandroid.views.aboutDialog.PromptDialog;
 
 /**
@@ -27,6 +27,10 @@ import com.fzp.mystudyandroid.views.aboutDialog.PromptDialog;
 
 public class LoginActivity extends AppCompatActivity {
     private static final int TO_HOME = 100002;
+    /**
+     * 数据库辅助类实例
+     */
+    public DBHelper mDBHelper = null;
     /**
      * 账号
      */
@@ -107,6 +111,7 @@ public class LoginActivity extends AppCompatActivity {
      * 初始化数据
      */
     private void initData() {
+        mDBHelper = DBHelper.getInstance(this);
         mHandler = new LoginHandler();
         mAccount = PreCacheUtil.getUserName();
         mPSW = PreCacheUtil.getPassword();
@@ -114,6 +119,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        mDBHelper.closeDB();
         finish();
     }
 
